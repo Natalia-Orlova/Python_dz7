@@ -1,9 +1,9 @@
 from datetime import datetime as dt
 from time import time
 
-def sum_logger(data):
+def logger(data):
     time = dt.now().strftime('%D %H:%M')
     with open('log.csv', 'a') as file:
-        file.write('{}; sum; {}\n'
+        file.write('{}; {}\n'
                     .format(time, data))
 

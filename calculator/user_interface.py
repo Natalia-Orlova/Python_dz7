@@ -5,6 +5,7 @@ import model_mult as mul
 import model_div as div
 import model_pow as p
 import model_sqrt as sq 
+import logger as log
     
 def view_data(data):
     print (f"result = {data}")
@@ -40,26 +41,42 @@ def menu():
             if op == '1':
                 result = s.sum(a, b)
                 view_data(result)
+                data = (f"sum; {a} + {b} = {result}")
+                log.logger(data)
+
             elif op == '2':
                 result = sub.sub(a, b)
                 view_data(result)
+                data = (f"substraction; {a} - {b} = {result}")
+                log.logger(data)
+
             elif op == '3':
                 result = mul.mult(a, b)
                 view_data(result)
+                data = (f"multiplication; {a} * {b} = {result}")
+                log.logger(data)
+
             elif op == '4':
                 if b !=0:
                     result = div.div(a, b)
                     view_data(result)
+                    data = (f"division; {a} / {b} = {result}")
+                    log.logger(data)
                 else:
                     print("Can't divide by zero!\n")
+
             elif op == '5':
                 result = p.pow(a, b)
                 view_data(result)
+                data = (f"exponentiation; {a} ^ {b} = {result}")
+                log.logger(data)
 
             elif op == '6':
                 a = com.compl() if c == '1' else float(input("Enter 1 number: "))
                 result = sq.sqrt(a)
                 view_data(result)
+                data = (f"square root; {a} = {result}")
+                log.logger(data)
             else:
                 print("Command doesn't exist")  
     return
